@@ -1,0 +1,9 @@
+{
+  "name": "serverless-cmx",
+  "version": "0.0.1",
+  "dependencies": {
+    "ciscospark": "1.31.3",
+    "@google-cloud/datastore": "1.4.0",
+    "@google-cloud/pubsub": "0.18.0"
+  }
+}

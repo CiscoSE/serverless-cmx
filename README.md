@@ -198,6 +198,10 @@ We only need to do this once to initialise some data. This is a bit clunky, but 
 ```
 gcloud beta functions deploy customerAction --trigger-topic=customer-detected
 ```
+27. Edit the MAC addresses in "customer-records" to reflect real clients and you should start to see Webex Teams messages like this:
+
+![Customer Notifications](images/customer-notifications.jpg)
+
 
 ## Finish
 

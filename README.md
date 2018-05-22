@@ -39,7 +39,7 @@ There are two parts to this, this first of which can be ignored if you are alrea
 
 Start by cloning this repo:
 ```
-git clone xxxxxxxxxxxx
+git clone https://github.com/CiscoSE/serverless-cmx.git
 ```
 Open index.js in an editor and be prepared to paste in 6 pieces of information as you go:
 

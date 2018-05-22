@@ -53,20 +53,20 @@
 const projectId = "serverless-cmx";
 //
 // The validator string to pass back to Meraki to confirm URI POST (from Meraki dashboard)
-const validator = "80689c856e34a80e8887e0d5d0206dcfeff165e4";
+const validator = "ABCDEF856e34a80e8887e0d5d0206dcfeff165e0";
 //
 // The secret that Meraki must pass to the POST URI (cmxIngest Cloud Function HTTP trigger) for verification
 const secret = "gcp-meraki-secret";
 //
 // The "Meraki Bot" Webex Teams token for access
 // The Bot posts Meraki data (nicely formated API data) and Customer Actions (staff notificiations about customers)
-const merakiCmxBotToken = 'MTNkMDY4NzEtMDQ3Yi00ZTM5LTk5NGUtNTRlZDE3ZTYxODI4NTRmZDAyNDAtNDcy';
+const merakiCmxBotToken = 'ABCDEFG4NzEtMDQ3Yi00ZTM5LTk5NGUtNTRlZDE3ZTYxODI4NTRmZDAyNDAtNDcy';
 //
 // Webex Teams Rood IDs can be discovered via https://developer.webex.com/endpoint-rooms-get.html
 // Webex Teams Room ID to write human-readable CMX data to.
-const cmxDataRoomID = 'Y2lzY29zcGFyazovL3VzL1JPT00vMmExMTJkODAtOTc5Yy0xMWU2LThkNGEtOWI5ODc0ZjljNWE0';
+const cmxDataRoomID = 'ABCDEF9zcGFyazovL3VzL1JPT00vMmExMTJkODAtOTc5Yy0xMWU2LThkNGEtOWI5ODc0ZjljNWE0';
 // Webex Teams Room ID to write customer notifications to. Bot must me a member of both rooms
-const customerActionRoomID = 'Y2lzY29zcGFyazovL3VzL1JPT00vMTc0YjllMTAtNTkxZi0xMWU4LTg0ZTMtNzNjZTcwNmRmYjQ1';
+const customerActionRoomID = 'ABCDEF9zcGFyazovL3VzL1JPT00vMTc0YjllMTAtNTkxZi0xMWU4LTg0ZTMtNzNjZTcwNmRmYjQ1';
 
 
 // Other constant definitions

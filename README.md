@@ -105,7 +105,7 @@ Open index.js in an editor and be prepared to paste in 6 pieces of information a
 7. cd into your project _directory_
 8. Deploy the ingestCMX Cloud Function via CLI. The functions will run in the default 256MB memory allocation which is adequate.
 ```
-gcloud beta functions deploy ingestCMX --trigger-http
+gcloud beta functions deploy ingestCMX --trigger-http --runtime nodejs6
 ```
 9. If the deploy is successful, you should see something like this:
 ```
@@ -147,7 +147,7 @@ versionId: '1'
 16. Deploy the writeCMXentity Cloud Function which subscribes to the _scanning-api-post_ topic and dumps the data
 into Datastore
 ```
-gcloud beta functions deploy writeCMXentity --trigger-topic=scanning-api-post
+gcloud beta functions deploy writeCMXentity --trigger-topic=scanning-api-post --runtime nodejs6
 ```
 17. You can check this working by checking the logs for the writeCMXentity function and observe data being written to Datastore:
 
@@ -155,7 +155,7 @@ gcloud beta functions deploy writeCMXentity --trigger-topic=scanning-api-post
 
 18. Deploy the writeCMXDataToWebexTeams function which subscribes to the scanning-api-post topic, formats the received CMX data in human readable format and posts as a Bot into a WT Space using the Webex Teams JavaScript SDK.
 ```
-gcloud beta functions deploy writeCMXDataToWebexTeams --trigger-topic=scanning-api-post
+gcloud beta functions deploy writeCMXDataToWebexTeams --trigger-topic=scanning-api-post --runtime nodejs6
 ```
 19. You should see the bot posting messages in your Webex Teams room like this:
 
@@ -163,11 +163,11 @@ gcloud beta functions deploy writeCMXDataToWebexTeams --trigger-topic=scanning-a
 
 20. Deploy the customerDetect function
 ```
-gcloud beta functions deploy customerDetect --trigger-topic=scanning-api-post
+gcloud beta functions deploy customerDetect --trigger-topic=scanning-api-post --runtime nodejs6
 ```
 21. Create some customer-records in Cloud Datastore as a fake "CRM".
 ```
-gcloud beta functions deploy initCRM --trigger-http
+gcloud beta functions deploy initCRM --trigger-http --runtime nodejs6
 ```
 You should see some output like:
 ```
@@ -196,7 +196,7 @@ We only need to do this once to initialise some data. This is a bit clunky, but 
 25. Ensure that the **customerActionRoomID** is has the correct RoomID and your Bot has been invited to the space.
 26. Deploy customerAction Cloud Function:
 ```
-gcloud beta functions deploy customerAction --trigger-topic=customer-detected
+gcloud beta functions deploy customerAction --trigger-topic=customer-detected --runtime nodejs6
 ```
 27. Edit the MAC addresses in "customer-records" to reflect real clients and you should start to see Webex Teams messages like this:
 
@@ -223,3 +223,5 @@ You should have end up with a couple of Webex Teams rooms - one full of data abo
 *  Collect location (x,y) / (lat,long) data and do something interesting with it
 *  Bluetooth data is stored but ignored. Why bother?
 *  Implement more useful customer actions - e.g. send an SMS (using Tropo) or a "Staff App" notification.
+
+Updated 14/Feb/2019 - GCP Cloud Functions now require the correct runtime to be specified with the --runtime flag. Everything is running on Node.js 6 so "--runtime nodejs6" appended to "gcloud beta functions deploy" 
